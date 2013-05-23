@@ -15,6 +15,6 @@ loop(State) ->
 		true
 end.
 
-handle_message(State, From, {ping, Data} = Message) ->
+handle_message(State, From, {ping, _Data} = Message) ->
 	From ! {self(), {pong, State}},
 	[Message | State].
