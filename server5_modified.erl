@@ -18,8 +18,6 @@ loop(Parent, State) ->
 			true;
 		{system, From, Request} ->
 			sys:handle_system_msg(Request, From, Parent, ?MODULE, [], State)
-	after 100 ->
-		?MODULE:loop(Parent, State)
 	end.
 
 system_continue(Parent, _Debug, State) ->
